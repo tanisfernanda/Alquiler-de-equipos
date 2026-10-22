@@ -1,0 +1,399 @@
+:root {
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  color: #24384a;
+  background: #f1f7fc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: #f1f7fc;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.app-shell {
+  width: min(100%, 1120px);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 28px 40px 48px;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #d8e7f2;
+}
+
+.site-title h1 {
+  margin: 0;
+  color: #315b7a;
+  font-size: 21px;
+  line-height: 1.3;
+}
+
+.create-button {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 8px;
+  padding: 0 16px;
+  background: #78b99a;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.create-button:hover {
+  background: #5da982;
+}
+
+.create-button:disabled,
+.delete-button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.app-content {
+  padding-top: 26px;
+}
+
+.homepage {
+  display: grid;
+  gap: 26px;
+}
+
+.page-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #5b9a7a;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.page-heading h1 {
+  margin: 0;
+  color: #2d526f;
+  font-size: clamp(24px, 3vw, 32px);
+}
+
+.page-description {
+  margin: 9px 0 0;
+  color: #71879a;
+  font-size: 14px;
+}
+
+.rental-summary {
+  display: flex;
+  gap: 10px;
+}
+
+.rental-summary div {
+  display: grid;
+  min-width: 82px;
+  gap: 4px;
+  padding: 11px 14px;
+  border: 1px solid #dceaf4;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.rental-summary strong {
+  color: #315b7a;
+  font-size: 20px;
+}
+
+.rental-summary span {
+  color: #71879a;
+  font-size: 11px;
+}
+
+.rental-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.rental-card {
+  display: flex;
+  min-width: 0;
+  min-height: 112px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px;
+  border: 1px solid #dceaf4;
+  border-radius: 12px;
+  background: #fbfdff;
+  cursor: pointer;
+  transition: border-color 140ms ease, box-shadow 140ms ease, transform 140ms ease;
+}
+
+.rental-card:hover,
+.rental-card:focus-visible {
+  border-color: #a7cbe0;
+  box-shadow: 0 8px 24px rgb(55 105 145 / 10%);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.rental-card.is-returned {
+  border-color: #b8ddc7;
+  background: #f4fbf7;
+}
+
+.rental-card-copy {
+  min-width: 0;
+}
+
+.rental-card h2 {
+  overflow: hidden;
+  margin: 0 0 5px;
+  color: #31546e;
+  font-size: 16px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rental-card p {
+  overflow: hidden;
+  margin: 0;
+  color: #71879a;
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.status-label {
+  display: inline-block;
+  margin-top: 12px;
+  color: #6f91a9;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.status-label.returned,
+.status-icon.is-returned {
+  color: #5b9e78;
+}
+
+.status-button {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  place-items: center;
+  border: 1px solid #d6e5ef;
+  border-radius: 50%;
+  background: #f3f8fc;
+  cursor: pointer;
+}
+
+.status-button:hover {
+  border-color: #9acdb0;
+  background: #eaf6ef;
+}
+
+.status-button:disabled {
+  cursor: wait;
+}
+
+.status-icon {
+  width: 20px;
+  height: 20px;
+  color: #88a5b8;
+}
+
+.empty-state {
+  padding: 48px 20px;
+  border: 1px dashed #c7dce9;
+  border-radius: 12px;
+  background: #fbfdff;
+  text-align: center;
+}
+
+.empty-state h2 {
+  margin: 0 0 8px;
+  color: #31546e;
+  font-size: 18px;
+}
+
+.empty-state p,
+.list-message {
+  margin: 0;
+  color: #71879a;
+  font-size: 14px;
+}
+
+.list-message {
+  padding: 28px;
+  text-align: center;
+}
+
+.notice {
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px solid #efc9c6;
+  border-radius: 8px;
+  background: #fff4f3;
+  color: #852d28;
+  font-size: 14px;
+}
+
+.form-page {
+  display: flex;
+  min-height: calc(100vh - 170px);
+  align-items: center;
+  justify-content: center;
+}
+
+.form-column {
+  width: min(100%, 480px);
+}
+
+.rental-form {
+  display: grid;
+  gap: 16px;
+  padding: 28px;
+  border: 1px solid #dceaf4;
+  border-radius: 12px;
+  background: #fbfdff;
+  box-shadow: 0 10px 30px rgb(55 105 145 / 7%);
+}
+
+.rental-form h1 {
+  margin: 0;
+  color: #31546e;
+  font-size: 24px;
+}
+
+.rental-form label {
+  display: grid;
+  gap: 7px;
+  color: #506c82;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.rental-form input {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid #d3e2ed;
+  border-radius: 7px;
+  padding: 0 12px;
+  background: #fff;
+  color: #24384a;
+  font-weight: 400;
+}
+
+.rental-form input:focus {
+  border-color: #81b99b;
+  outline: 2px solid #d7eee0;
+  outline-offset: 1px;
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.cancel-button {
+  min-height: 40px;
+  border: 0;
+  background: transparent;
+  color: #58738a;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.delete-button {
+  width: 100%;
+  min-height: 42px;
+  margin-top: 14px;
+  border: 0;
+  border-radius: 8px;
+  background: #7fa8c4;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background: #6895b3;
+}
+
+@media (max-width: 700px) {
+  .app-shell {
+    padding: 22px 20px 32px;
+  }
+
+  .page-heading {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .rental-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 460px) {
+  .app-shell {
+    padding: 18px 14px 28px;
+  }
+
+  .site-title h1 {
+    font-size: 18px;
+  }
+
+  .rental-summary {
+    width: 100%;
+  }
+
+  .rental-summary div {
+    min-width: 0;
+    flex: 1;
+    padding: 10px;
+  }
+
+  .rental-form {
+    padding: 22px 18px;
+  }
+}
